@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-light: #F8FAFC;
+    --bg-blue-tint: #F0F7FF;
+    --ink-dark: #0F172A;
+    --ink-muted: #475569;
+    --blue-primary: #2563EB;
+    --blue-hover: #1D4ED8;
+    --blue-dark: #1E3A8A;
+    --border-light: rgba(226, 232, 240, 0.8);
+    --border-blue: rgba(37, 99, 235, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--ink-dark);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'Space Mono', monospace;
+  }
+}
+
+/* Custom Scrollbar for sleek desktop feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.label-caps {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #2563EB;
+  font-weight: 700;
+}
+
+.card-editorial {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.02);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.card-editorial:hover {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 20px 35px -10px rgba(37, 99, 235, 0.16), 0 10px 15px -5px rgba(15, 23, 42, 0.05);
+  transform: translateY(-8px) scale(1.015);
+}
+
+/* Darker color slide to left animation on hover for all buttons */
+.btn-blue-primary,
+.btn-dark,
+.btn-pop,
+.btn-slide-dark,
+.btn-secondary {
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+/* Ensure inner text and icons stay above the sliding pseudo-element layer */
+.btn-blue-primary > *,
+.btn-dark > *,
+.btn-pop > *,
+.btn-slide-dark > *,
+.btn-secondary > * {
+  position: relative;
+  z-index: 10;
+  transition: color 0.25s ease, fill 0.25s ease, stroke 0.25s ease;
+}
+
+/* Sliding Pseudo Element - Default state: hidden off-screen to the right (translateX(101%)) */
+.btn-blue-primary::before,
+.btn-dark::before,
+.btn-pop::before,
+.btn-slide-dark::before,
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(101%);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* On hover, slide left to fill the button (translateX(0)) */
+.btn-blue-primary:hover::before,
+.btn-dark:hover::before,
+.btn-pop:hover::before,
+.btn-slide-dark:hover::before,
+.btn-secondary:hover::before {
+  transform: translateX(0);
+}
+
+/* Force all fonts, texts, icons, and SVG strokes inside buttons to turn pure white on hover */
+.btn-blue-primary:hover,
+.btn-blue-primary:hover *,
+.btn-dark:hover,
+.btn-dark:hover *,
+.btn-pop:hover,
+.btn-pop:hover *,
+.btn-slide-dark:hover,
+.btn-slide-dark:hover *,
+.btn-secondary:hover,
+.btn-secondary:hover * {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Primary Blue Button - Darker navy slate shade sliding in */
+.btn-blue-primary {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 4px 12px -2px rgba(37, 99, 235, 0.35);
+}
+
+.btn-blue-primary::before {
+  background-color: #0F172A; /* Dark slate navy overlay */
+}
+
+.btn-blue-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.45);
+}
+
+.btn-blue-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Dark Button - Darker midnight black shade sliding in */
+.btn-dark {
+  background-color: #0F172A;
+  color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.3);
+}
+
+.btn-dark::before {
+  background-color: #020617; /* Deep midnight black slide */
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 22px -3px rgba(2, 6, 23, 0.5);
+}
+
+.btn-dark:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Light / Pop / Secondary Buttons - Dark slate slide in on hover, font turns white */
+.btn-pop,
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-weight: 600;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.05);
+}
+
+.btn-pop::before,
+.btn-secondary::before {
+  background-color: #0F172A; /* Dark slate slide fill */
+}
+
+.btn-pop:hover,
+.btn-secondary:hover {
+  border-color: #0F172A;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px -3px rgba(15, 23, 42, 0.3);
+}
+
+.btn-pop:active,
+.btn-secondary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+

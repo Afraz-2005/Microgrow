@@ -1,0 +1,6 @@
+{
+  "name": "MicroGrow Social Foundation",
+  "description": "Where Every System Works for Every Child. Official web portal for MicroGrow Social Foundation Bangladesh, pioneering the Healthy Village Approach, RAINBOWS model, WASH, child nutrition, and climate-resilient community enterprises.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
