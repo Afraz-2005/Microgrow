@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { LINKEDIN_POSTS, ORGANISATION_INFO } from '../data/organizationData';
 import { LinkedInPost } from '../types';
+import mcg2Logo from '../assets/images/MGC2.jpg';
 
 export const LinkedInUpdates: React.FC = () => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -110,9 +111,11 @@ export const LinkedInUpdates: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-                      MS
-                    </div>
+                    <img 
+                      src={mcg2Logo} 
+                      alt="MicroGrow Social" 
+                      className="w-9 h-9 rounded-lg object-cover shadow-2xs border border-slate-200 shrink-0" 
+                    />
                     <div>
                       <h4 className="font-extrabold text-slate-900 text-sm flex items-center gap-1.5">
                         {post.author}

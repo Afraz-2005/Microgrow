@@ -9,6 +9,7 @@ import {
   ExternalLink 
 } from 'lucide-react';
 import { ORGANISATION_INFO } from '../data/organizationData';
+import mcgLogo from '../assets/images/MCG.jpg';
 
 interface FooterProps {
   onOpenGetInvolved: () => void;
@@ -29,9 +30,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGetInvolved }) => {
           {/* Org Info Column */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <span className="font-extrabold text-xl tracking-tight text-white">
-                MICROGROW<span className="text-blue-500">.</span>
-              </span>
+              <img 
+                src={mcgLogo} 
+                alt="MICROGROW" 
+                className="h-10 w-auto object-contain bg-white/90 p-1 rounded" 
+              />
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-normal">

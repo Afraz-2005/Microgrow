@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { LEADERSHIP_TEAM, FAQ_ITEMS } from '../data/organizationData';
 import { motion, AnimatePresence } from 'motion/react';
+import pfImg from '../assets/images/pf.jpg';
 
 export const LeadershipAndFAQ: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -52,9 +53,11 @@ export const LeadershipAndFAQ: React.FC = () => {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className={`w-12 h-12 rounded-xl ${member.imageBg} text-white font-extrabold text-base flex items-center justify-center shadow-2xs`}>
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
+                  <img 
+                    src={pfImg} 
+                    alt={member.name} 
+                    className="w-12 h-12 rounded-xl object-cover shadow-2xs border border-slate-200 shrink-0" 
+                  />
 
                   <a 
                     href={member.linkedInUrl} 

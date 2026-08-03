@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { ORGANISATION_INFO } from '../data/organizationData';
 import { motion, AnimatePresence } from 'motion/react';
+import mcgLogo from '../assets/images/MCG.jpg';
 
 interface NavbarProps {
   activeSection: string;
@@ -84,9 +85,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => scrollTo('hero')} 
             className="flex items-center gap-2.5 text-left focus:outline-none group cursor-pointer"
           >
-            <div className="font-extrabold text-slate-900 text-xl tracking-tight uppercase font-sans group-hover:text-blue-600 transition-colors">
-              MICROGROW<span className="text-blue-600">.</span>
-            </div>
+            <img 
+              src={mcgLogo} 
+              alt="MICROGROW" 
+              className="h-10 w-auto object-contain max-w-[160px] rounded" 
+            />
             <span className="hidden sm:inline-block text-[10px] font-mono font-bold tracking-widest uppercase bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200/80">
               FOUNDATION BD
             </span>
